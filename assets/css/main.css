@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Gilroy.Font';
+    src: url('~static/fonts/Gilroy.Font') format('Gilroy');
+    /* Add other font formats if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

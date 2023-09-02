@@ -33,6 +33,20 @@
             </div>
           </nav>
         </div>
+
+        <div class="text-search_container">
+          <div>
+            <p>
+              Ready to Rock? Discover the <br />
+              Hottest Events Here – Your <br />
+              Calendar's New Best Friend!
+            </p>
+          </div>
+
+          <div>
+            <Search />
+          </div>
+        </div>
       </header>
     </div>
   </div>

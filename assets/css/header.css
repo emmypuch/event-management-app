@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy.Font', Gilroy-Bold;
 }
 
 header nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 div.background-img {
@@ -37,27 +37,27 @@ header ul {
 
 header ul li {
     font-size: 14px;
-    margin: 30px;
-    
+    margin: 10px; 
+    font-family: 'GilroyBold';
 }
 
 .custom-link {
     text-decoration: none;
     font-size: 16px;
     color: #432361;
-    
 }
 
  .buttons {
-    margin: 30px;
+    margin: 10px;
 }
 
 .logo {
     margin: 20px;
     color: #432361;
-    font-size: 32px;
+    font-size: 30px;
     text-decoration: none;
     line-height: 37.5px;
+    font-family: 'GilroyBold';
 }
 
 .btn-login, .btn-signup {
@@ -69,6 +69,7 @@ header ul li {
     color: #432361;
     font-size: 16px;
     line-height: 18.75px;
+    font-family: 'GilroyBold';
 }
 
 .btn-signup {
@@ -78,4 +79,24 @@ header ul li {
     border-radius: 10px;
     color: #fff;
     line-height: 18.75px;
+    font-family: 'GilroyBold';
+    margin-right: 10px;
+}
+
+/* Search Input Styling */
+div.text-search_container {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 200px; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding: 2.3rem;
+    position: s;
+}
+
+p {
+    color: #fff;
 }

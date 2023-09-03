@@ -7,4 +7,10 @@
 div.wrapper {
     background-color: #432361;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.content {
+    display: flex;
 }

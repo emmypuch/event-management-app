@@ -85,18 +85,29 @@ header ul li {
 
 /* Search Input Styling */
 div.text-search_container {
-    /* display: flex;
-    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    position: absolute;
-    bottom: 200px; */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
     padding: 2.3rem;
-    position: s;
+    position: static;
+    margin-top: 20rem;
 }
 
-p {
+p.hero-paragragh {
     color: #fff;
+    font-size: 30px; 
+    Line-height: 37.5px;
+    font-family: 'GilroyBold';
+}
+
+@media screen and (max-width: 768px) {
+    div.text-search_container {
+        flex-direction: column;
+        margin-top: 10rem;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
 }

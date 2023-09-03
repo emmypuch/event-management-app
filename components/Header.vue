@@ -36,7 +36,7 @@
 
         <div class="text-search_container">
           <div>
-            <p>
+            <p class="hero-paragragh">
               Ready to Rock? Discover the <br />
               Hottest Events Here – Your <br />
               Calendar's New Best Friend!

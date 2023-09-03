@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="logo-wrapper">
       <NuxtLink to="/">rendezvous</NuxtLink>
       <p>Your Personal Event Sherpa: Curating Awesome, One Click at a Time.</p>
@@ -38,4 +38,6 @@
   </div>
 </template>
 
-<script setup></script>
+<script>
+import "~/assets/css/footer.css";
+</script>

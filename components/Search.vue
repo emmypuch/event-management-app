@@ -10,6 +10,18 @@
           placeholder="Search for an event"
         />
       </label>
+      <div class="vertical-line"></div>
+      <select v-model="selectedCategory" @change="categoryChanged">
+        <option value="">Categories</option>
+        <option value="conference">All</option>
+        <option value="music">Comedy</option>
+        <option value="sports">Religious</option>
+        <option value="conference">Tech</option>
+        <option value="conference">Health</option>
+        <option value="conference">Fitness</option>
+        <option value="conference">Sports</option>
+        <option value="conference">Education</option>
+      </select>
       <button @click="search">Search</button>
     </div>
   </div>
@@ -20,6 +32,7 @@ export default {
   data() {
     return {
       query: "",
+      selectedCategory: "", // Initialize selected category
     };
   },
   methods: {
@@ -28,6 +41,11 @@ export default {
     },
     search() {
       console.log("hello");
+      // Use this.query and this.selectedCategory for searching
+    },
+    categoryChanged() {
+      console.log("Category changed to:", this.selectedCategory);
+      // You can trigger search or perform other actions when the category changes
     },
   },
 };
@@ -57,6 +75,34 @@ export default {
   border: none;
   outline: none;
   background: none;
+  color: #4f4f4f;
+  font-size: 16px;
+  line-height: 18.75px;
+  font-family: "GilroySemiBold";
+}
+
+select {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: 16px;
+  color: #4f4f4f;
+  font-size: 16px;
+  line-height: 18.75px;
+  font-family: "GilroyRegular";
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.vertical-line {
+  border-left: 2px solid #e0e0e0;
+  height: 30px;
+  margin-left: 16px;
+}
+
+select option:hover,
+select option:checked {
+  background-color: #f0f0f0;
 }
 
 button {
@@ -66,5 +112,6 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-family: "GilroySemiBold";
 }
 </style>

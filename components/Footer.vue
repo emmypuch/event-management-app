@@ -143,7 +143,7 @@ div.contact p {
 div.feature ul li,
 div.company ul li,
 div.contact ul li {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 768px) {

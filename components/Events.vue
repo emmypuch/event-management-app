@@ -3,7 +3,7 @@
     <div class="container">
       <div>
         <h4>Discover a World of Events Tailored Just for You.</h4>
-        <NuxtLink to="/" class="custom-link">View all events</NuxtLink>
+        <nuxt-link to="/details" class="custom-link">View all events</nuxt-link>
       </div>
 
       <div class="grid">

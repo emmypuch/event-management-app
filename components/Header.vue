@@ -7,30 +7,30 @@
           <nav>
             <ul>
               <li>
-                <NuxtLink to="/discover" class="custom-link" target="_blank"
+                <NuxtLink to="/" class="custom-link" target="_blank"
                   >Discover</NuxtLink
                 >
               </li>
               <li>
-                <NuxtLink to="/discover" class="custom-link" target="_blank"
+                <NuxtLink to="/" class="custom-link" target="_blank"
                   >About us</NuxtLink
                 >
               </li>
               <li>
-                <NuxtLink to="/discover" class="custom-link" target="_blank"
+                <NuxtLink to="/" class="custom-link" target="_blank"
                   >FAQs</NuxtLink
                 >
               </li>
               <li>
-                <NuxtLink to="/discover" class="custom-link" target="_blank"
+                <NuxtLink to="/" class="custom-link" target="_blank"
                   >Contact us</NuxtLink
                 >
               </li>
             </ul>
           </nav>
           <div class="buttons">
-            <a href="#" class="btn-login">Log in</a>
-            <a href="#" class="btn-signup">Sign up</a>
+            <nuxt-link to="/login" class="btn-login">Login</nuxt-link>
+            <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
           </div>
         </div>
 

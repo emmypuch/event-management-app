@@ -27,22 +27,16 @@
         <h4>Company</h4>
         <ul>
           <li>
-            <NuxtLink to="/about" target="_blank" class="about"
-              >About us</NuxtLink
-            >
+            <NuxtLink to="/" target="_blank" class="about">About us</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/faqs" target="_blank" class="faq">FAQs</NuxtLink>
+            <NuxtLink to="/" target="_blank" class="faq">FAQs</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/career" target="_blank" class="career"
-              >Careers</NuxtLink
-            >
+            <NuxtLink to="/" target="_blank" class="career">Careers</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/support" target="_blank" class="support"
-              >Support</NuxtLink
-            >
+            <NuxtLink to="/" target="_blank" class="support">Support</NuxtLink>
           </li>
         </ul>
       </div>
@@ -85,6 +79,7 @@ div.wrapper {
   display: flex;
   justify-content: space-between;
   padding: 50px;
+  margin-top: 50px;
 }
 
 div.content {

@@ -103,6 +103,7 @@ p.hero-paragragh {
     color: #fff;
     font-size: 26px; 
     font-family: 'GilroyBold';
+    line-height: 37.5px;
 }
 
 @media screen and (max-width: 768px) {

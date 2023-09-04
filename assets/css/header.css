@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
-header nav {
+header .nav-container  {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 div.background-img {
@@ -32,7 +37,7 @@ div.nav-container {
     height: 80px;
 }
 
-header ul {
+header  nav ul {
     display: flex;
 }
 
@@ -96,7 +101,7 @@ div.text-search_container {
 
 p.hero-paragragh {
     color: #fff;
-    font-size: 30px; 
+    font-size: 26px; 
     font-family: 'GilroyBold';
 }
 
@@ -107,12 +112,21 @@ p.hero-paragragh {
     }
     
     div.nav-container {
-            top: 30px;
-            margin-left: 30px;
-            margin-right: 30px;
-            border-radius: 20px;
-            padding: 12px, 24px, 12px, 24px;
-            height: 80px;
+        top: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+        border-radius: 20px;
+        padding: 12px, 24px, 12px, 24px;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    header nav ul, .buttons {
+        display: flex;
+        flex-direction: column;
     }
 
     div.text-search_container {
@@ -123,11 +137,6 @@ p.hero-paragragh {
     p {
         font-size: 20px;
         margin-bottom: 15px;
-    }
-
-    header ul, .buttons {
-        display: flex;
-        flex-direction: column;
     }
 
     p.hero-paragragh {

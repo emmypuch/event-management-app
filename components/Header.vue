@@ -3,8 +3,8 @@
     <div class="background-img">
       <header>
         <div class="nav-container">
+          <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
           <nav>
-            <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
             <ul>
               <li>
                 <NuxtLink to="/discover" class="custom-link" target="_blank"
@@ -27,11 +27,11 @@
                 >
               </li>
             </ul>
-            <div class="buttons">
-              <a href="#" class="btn-login">Log in</a>
-              <a href="#" class="btn-signup">Sign up</a>
-            </div>
           </nav>
+          <div class="buttons">
+            <a href="#" class="btn-login">Log in</a>
+            <a href="#" class="btn-signup">Sign up</a>
+          </div>
         </div>
 
         <div class="text-search_container">

@@ -1,8 +1,16 @@
 @font-face {
   font-family: 'GilroyBold';
-  src: url('/public/fonts/gilroy/Gilroy-Bold.ttf') format('truetype'),
-  url('/public/fonts/gilroy/Gilroy-Regular.ttf') format('truetype'),
-  url('/public/fonts/gilroy/Gilroy-SemiBold.ttf') format('truetype');
+  src: url('/public/fonts/gilroy/Gilroy-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'GilroyRegular';
+  src:  url('/public/fonts/gilroy/Gilroy-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'GilroySemiBold';
+  src: url('/public/fonts/gilroy/Gilroy-SemiBold.ttf') format('truetype');
 }
 
 * {

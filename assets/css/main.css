@@ -13,6 +13,11 @@
   src: url('/public/fonts/gilroy/Gilroy-SemiBold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'GilroyMedium';
+  src: url('/public/fonts/gilroy/Gilroy-Medium.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;

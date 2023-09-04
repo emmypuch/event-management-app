@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="search-input-container">
       <label class="search-label">
         <img src="~assets/images/search-icon.svg" alt="Search Icon" />
@@ -111,7 +111,40 @@ button {
   color: #fff;
   border: none;
   border-radius: 10px;
+  font-size: 12px;
   cursor: pointer;
   font-family: "GilroySemiBold";
+  margin-left: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  div.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .search-input-container {
+    height: 70px;
+    /* width: 80%; */
+  }
+
+  .search-label input {
+    font-size: 12px;
+  }
+
+  select {
+    margin-left: 14px;
+    font-size: 12px;
+  }
+
+  .vertical-line {
+    margin-left: 12px;
+  }
+
+  button {
+    padding: 12px;
+  }
 }
 </style>

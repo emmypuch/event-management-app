@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hero-img">
-      <img src="assets/images/hero-img.png" />
+      <img src="~assets/images/hero2.png" />
     </div>
 
     <!-- what I said section -->
@@ -10,10 +10,13 @@
     </div>
 
     <!-- Map Section -->
+    <div class="ticketing">
+      <social-media-links />
+    </div>
     <div class="map-wrapper">
       <div class="map-content">
         <h6>Event description</h6>
-        <p>
+        <p class="map-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,7 +40,7 @@
         </p>
         <div class="ticket">
           <h6>Tickets Pricing</h6>
-          <div class="flex">
+          <div class="flex-ticket">
             <div class="single">
               <h5>Single</h5>
               <p>NGN 5,000</p>
@@ -57,9 +60,10 @@
 
       <div class="map">
         <h6>Directions</h6>
-        <!-- <div>
-          <GoogleMap />
-        </div> -->
+        <div>
+          <!-- <GoogleMap /> -->
+          <!-- <img src="~assets/images/basket.png" /> -->
+        </div>
       </div>
     </div>
   </div>
@@ -84,13 +88,26 @@ export default {
 div.map-wrapper {
   display: flex;
   justify-content: space-between;
+  gap: 70px;
   padding: 50px;
+}
+
+div.hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div.hero-img img {
+  max-width: 100%;
+  height: auto;
 }
 
 div.map-content,
 div.map,
 div.ticket {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 div.map-content h6,
@@ -106,15 +123,17 @@ div.map-content p {
   font-size: 16px;
   font-family: "GilroyRegular";
   margin-top: 15px;
+  text-align: justify;
 }
 
-div.flex {
+div.flex-ticket {
   display: flex;
   gap: 30px;
+  margin-top: 20px;
 }
 
 div.single h5,
-div.single h5 {
+div.pair h5 {
   font-family: "GilroyMedium";
   font-size: 20px;
   line-height: 23.44px;
@@ -132,11 +151,25 @@ div.button {
   margin-top: 10px;
 }
 
+div.ticketing {
+  position: absolute;
+  left: 970px;
+}
+
 @media screen and (max-width: 768px) {
   div.map-wrapper {
     display: flex;
     flex-direction: column;
     padding: 20px;
+  }
+
+  div.ticketing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0px;
+    margin-top: 30px;
   }
 }
 </style>

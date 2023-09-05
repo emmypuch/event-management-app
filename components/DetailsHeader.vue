@@ -3,7 +3,16 @@
     <header>
       <div class="nav-container">
         <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
-        <nav>
+        <div
+          class="hamburger-menu"
+          @click="toggleMobileMenu"
+          :class="{ active: mobileMenuOpen }"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
           <ul>
             <li>
               <NuxtLink to="/" class="custom-link" target="_blank"
@@ -36,6 +45,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      mobileMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen;
+    },
+  },
+};
+</script>
+
 <style scoped>
 * {
   margin: 0;
@@ -47,9 +71,7 @@ header .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
+  padding: 20px 60px 0px 60px;
 }
 
 nav {
@@ -108,5 +130,45 @@ header ul li {
   line-height: 18.75px;
   font-family: "GilroyBold";
   margin-right: 10px;
+}
+
+.hamburger-menu {
+  display: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger-menu {
+    margin-top: 20px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #432361;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }
 </style>

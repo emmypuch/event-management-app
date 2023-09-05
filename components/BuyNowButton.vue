@@ -1,5 +1,7 @@
 <template>
-  <button class="buy-now-button" @click="buyNow">Buy Now</button>
+  <div class="buy-button">
+    <button class="buy-now-button" @click="buyNow">Buy Now</button>
+  </div>
 </template>
 
 <script>
@@ -11,6 +13,10 @@ export default {
 </script>
 
 <style scoped>
+div.buy-button {
+  margin-top: 30px;
+}
+
 .buy-now-button {
   background-color: #783ead;
   color: #fff;

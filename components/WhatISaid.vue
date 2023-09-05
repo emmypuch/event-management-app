@@ -1,18 +1,15 @@
 <template>
   <div>
-    <div class="flex">
+    <h5 class="said">I said what I said Live Show</h5>
+    <div class="flex-said">
       <div>
-        <h6>I said what I said Live Show</h6>
-        <div>
-          <time-address />
-        </div>
+        <time-address />
       </div>
 
       <!-- Organizer Section -->
-      <div>
-        <h6>Contact organizers</h6>
+      <!-- <div class="ticketing">
         <social-media-links />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -25,3 +22,29 @@ export default {
   components: { SocialMediaLinks, TimeAddress },
 };
 </script>
+
+<style scoped>
+div.ticketing {
+  position: relative;
+  left: 0;
+}
+
+div.ticketing h6 {
+  color: red;
+}
+
+h5.said {
+  padding-left: 65px;
+  margin-top: 30px;
+  color: #000;
+  font-size: 24px;
+  font-family: "GilroyBold";
+  line-height: 28.13px;
+}
+
+@media screen and (max-width: 768px) {
+  h5.said {
+    padding-left: 30px;
+  }
+}
+</style>

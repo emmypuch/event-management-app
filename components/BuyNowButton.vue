@@ -28,4 +28,14 @@ div.buy-button {
   font-size: 16px;
   line-height: 18.75px;
 }
+
+@media screen and (max-width: 768px) {
+  div.buy-button {
+    text-align: center;
+  }
+
+  .buy-now-button {
+    margin-top: 10px;
+  }
+}
 </style>

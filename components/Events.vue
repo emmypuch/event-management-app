@@ -76,8 +76,8 @@ div.grid-text {
   top: 0;
   background: rgba(57, 57, 57, 0.5);
   inset: 0;
-  width: 421px;
-  height: 240px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 
@@ -99,6 +99,15 @@ img {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .custom-link {
+    margin-top: 20px;
   }
 
   div.grid {
@@ -106,14 +115,13 @@ img {
   }
 
   img {
-    width: 380px;
-    height: 240px;
-    border-radius: 10px;
+    width: 100%;
+    height: auto;
   }
 
   .overlay {
-    width: 380px;
-    height: 240px;
+    width: 100%;
+    height: auto;
   }
 
   h6 {

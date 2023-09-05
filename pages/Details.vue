@@ -163,6 +163,80 @@ div.ticketing {
     padding: 20px;
   }
 
+  div.map-content h6,
+  div.map h6,
+  div.ticket h6 {
+    font-size: 18px;
+  }
+
+  div.map-content p {
+    font-size: 14px;
+  }
+
+  div.flex-ticket {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  div.single h5,
+  div.pair h5 {
+    font-size: 18px;
+  }
+
+  div.single p,
+  div.pair p {
+    font-size: 14px;
+  }
+
+  div.button {
+    margin-top: 10px;
+  }
+
+  div.ticketing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.map-wrapper {
+    gap: 30px;
+    padding: 20px;
+  }
+
+  div.map-content h6,
+  div.map h6,
+  div.ticket h6 {
+    font-size: 16px;
+  }
+
+  div.map-content p {
+    font-size: 14px;
+  }
+
+  div.flex-ticket {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  div.single h5,
+  div.pair h5 {
+    font-size: 16px;
+  }
+
+  div.single p,
+  div.pair p {
+    font-size: 14px;
+  }
+
+  div.button {
+    margin-top: 10px;
+  }
+
   div.ticketing {
     display: flex;
     justify-content: center;

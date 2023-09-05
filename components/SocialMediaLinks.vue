@@ -15,23 +15,38 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
+.social-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .social-media-links {
   display: flex;
   gap: 16px;
+  margin-top: 10px;
 }
 
 .social-media-links h6 {
+  font-size: 16px;
   margin-top: 10px;
 }
 
 .social-media-links a {
   text-decoration: none;
   font-size: 24px;
-  margin-top: 15px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-links {
+    flex-direction: column;
+  }
+
+  .social-media-links a {
+    margin-top: 5px;
+  }
 }
 </style>

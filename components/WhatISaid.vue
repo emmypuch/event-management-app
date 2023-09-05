@@ -5,11 +5,6 @@
       <div>
         <time-address />
       </div>
-
-      <!-- Organizer Section -->
-      <!-- <div class="ticketing">
-        <social-media-links />
-      </div> -->
     </div>
   </div>
 </template>
@@ -29,10 +24,6 @@ div.ticketing {
   left: 0;
 }
 
-div.ticketing h6 {
-  color: red;
-}
-
 h5.said {
   padding-left: 65px;
   margin-top: 30px;
@@ -44,7 +35,8 @@ h5.said {
 
 @media screen and (max-width: 768px) {
   h5.said {
-    padding-left: 30px;
+    padding-left: 20px;
+    font-size: 20px;
   }
 }
 </style>

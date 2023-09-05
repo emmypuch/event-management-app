@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       query: "",
-      selectedCategory: "", // Initialize selected category
+      selectedCategory: "",
     };
   },
   methods: {
@@ -41,11 +41,9 @@ export default {
     },
     search() {
       console.log("hello");
-      // Use this.query and this.selectedCategory for searching
     },
     categoryChanged() {
       console.log("Category changed to:", this.selectedCategory);
-      // You can trigger search or perform other actions when the category changes
     },
   },
 };
@@ -79,6 +77,7 @@ export default {
   font-size: 16px;
   line-height: 18.75px;
   font-family: "GilroySemiBold";
+  width: 100%;
 }
 
 select {
@@ -126,25 +125,37 @@ button {
   }
 
   .search-input-container {
-    height: 70px;
-    /* width: 80%; */
+    /* flex-direction: column;
+    align-items: flex-start;
+    height: auto; */
+    padding: 20px;
+  }
+
+  .search-label img {
+    margin-top: 8px;
   }
 
   .search-label input {
     font-size: 12px;
+    width: 100%;
+    margin-top: 10px;
   }
 
   select {
     margin-left: 14px;
     font-size: 12px;
+    margin-left: 0;
+    margin-top: 8px;
   }
 
   .vertical-line {
-    margin-left: 12px;
+    /* margin-left: 12px; */
+    display: none;
   }
 
   button {
     padding: 12px;
+    margin-top: 10px;
   }
 }
 </style>

@@ -68,12 +68,6 @@
 <script></script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 div.wrapper {
   background-color: #432361;
   display: flex;
@@ -151,6 +145,35 @@ div.contact ul li {
   div.content {
     margin-top: 30px;
     justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+
+  .logo-wrapper p {
+    font-size: 12px;
+  }
+
+  div.feature h4,
+  div.company h4,
+  div.contact h4 {
+    font-size: 14px;
+  }
+
+  .event,
+  .ticket,
+  .about,
+  .faq,
+  .career,
+  .support,
+  .info,
+  .tel {
+    font-size: 12px;
+  }
+
+  div.contact p {
+    font-size: 12px;
   }
 }
 </style>

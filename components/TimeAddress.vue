@@ -48,7 +48,11 @@ div.flex-time h6 {
 @media screen and (max-width: 768px) {
   div.flex-time {
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+
+  div.flex-time h6 {
+    font-size: 14px;
   }
 }
 </style>

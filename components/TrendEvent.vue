@@ -203,6 +203,7 @@ p {
     flex-direction: column;
     padding: 20px;
     gap: 30px;
+    align-items: center;
   }
 
   div.trending-heading {
@@ -211,28 +212,32 @@ p {
 
   div.trending-heading h4 {
     font-size: 20px;
+    align-items: center;
   }
 
   .custom-link {
     font-size: 14px;
+    align-items: center;
   }
 
   div.image-container_1 {
-    width: 350px;
-    height: 410px;
+    width: 100%;
+    max-width: 350px;
   }
 
   img.image1 {
-    width: 350px;
-    height: 190px;
+    width: 100%;
+    height: auto;
   }
 
   h5 {
     font-size: 14px;
+    align-items: center;
   }
 
   h6 {
     font-size: 12px;
+    align-items: center;
   }
 
   p {
@@ -241,10 +246,12 @@ p {
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 5px;
+    align-items: center;
   }
 
   .details-link {
     font-size: 12px;
+    align-items: center;
   }
 }
 </style>

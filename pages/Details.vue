@@ -5,6 +5,11 @@
       <img src="assets/images/hero-img.png" />
     </div>
 
+    <!-- what I said section -->
+    <div>
+      <what-i-said />
+    </div>
+
     <!-- Map Section -->
     <div class="map-wrapper">
       <div class="map-content">
@@ -64,10 +69,11 @@
 import Header from "~/components/Header.vue";
 import GoogleMap from "~/components/GoogleMap.vue";
 import BuyNowButton from "~/components/BuyNowButton.vue";
+import WhatISaid from "~/components/WhatISaid.vue";
 import Footer from "~/components/Footer.vue";
 
 export default {
-  components: { Header, GoogleMap, BuyNowButton, Footer },
+  components: { Header, GoogleMap, BuyNowButton, WhatISaid, Footer },
   methods: {
     handleBuyNowClick() {
       console.log("hello");

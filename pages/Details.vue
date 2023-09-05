@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="header"><Header /></div>
     <div class="hero-img">
       <img src="assets/images/hero-img.png" />
     </div>
@@ -58,22 +57,21 @@
 
       <div class="map">
         <h6>Directions</h6>
-        <GoogleMap />
+        <!-- <div>
+          <GoogleMap />
+        </div> -->
       </div>
     </div>
-    <footer />
   </div>
 </template>
 
 <script>
-import Header from "~/components/Header.vue";
-import GoogleMap from "~/components/GoogleMap.vue";
 import BuyNowButton from "~/components/BuyNowButton.vue";
 import WhatISaid from "~/components/WhatISaid.vue";
-import Footer from "~/components/Footer.vue";
 
+definePageMeta({ layout: "details" });
 export default {
-  components: { Header, GoogleMap, BuyNowButton, WhatISaid, Footer },
+  components: { BuyNowButton, WhatISaid },
   methods: {
     handleBuyNowClick() {
       console.log("hello");

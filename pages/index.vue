@@ -1,3 +1,8 @@
 <template>
-  <h1>Hello</h1>
+  <TrendEvent />
+  <Events />
 </template>
+
+<!-- <script>
+alert("hello world");
+</script> -->

@@ -1,40 +1,26 @@
 <template>
   <div>
-    <gmap-map :center="center" :zoom="zoom" style="width: 100%; height: 400px">
-      <gmap-marker
-        :position="center"
-        :clickable="true"
-        @click="showInfoWindow"
-      />
-
-      <gmap-info-window
-        :position="center"
-        :opened="infoWindowOpen"
-        @closeclick="infoWindowOpen = false"
-      >
-        <div>
-          <h3>My Location</h3>
-          <p>Latitude: {{ center.lat }}</p>
-          <p>Longitude: {{ center.lng }}</p>
-        </div>
-      </gmap-info-window>
-    </gmap-map>
+    <GoogleMap
+      api-key="MY_API_KEY"
+      style="width: 100%; height: 500px"
+      :center="center"
+      :zoom="15"
+    >
+      <Marker :options="{ position: center }" />
+    </GoogleMap>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      center: { lat: 37.7749, lng: -122.4194 },
-      zoom: 8,
-      infoWindowOpen: false,
-    };
+import { defineComponent } from "vue";
+import { GoogleMap, Marker } from "vue3-google-map";
+
+export default defineComponent({
+  components: { GoogleMap, Marker },
+  setup() {
+    const center = { lat: 40.689247, lng: -74.044502 };
+
+    return { center };
   },
-  methods: {
-    showInfoWindow() {
-      this.infoWindowOpen = !this.infoWindowOpen;
-    },
-  },
-};
+});
 </script>

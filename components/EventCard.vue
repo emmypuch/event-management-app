@@ -1,61 +1,58 @@
-<script setup>
-const { pending, data: events } = await useFetch(
-  "https://rendezvous-events.onrender.com/events",
-  {
-    lazy: true,
-  }
-);
-</script>
-
 <template>
-  <div>
-    <div class="trending-heading">
-      <div>
-        <h4>Trending events</h4>
-      </div>
-      <div>
-        <NuxtLink to="/events" class="custom-link"
-          >View all trending events
-          <img src="~assets/images/arrow-up.svg" alt="Arrow Up"
-        /></NuxtLink>
-      </div>
-    </div>
-
-    <!-- Trending Container Section -->
-    <div class="trending-container">
-      <div v-for="eventData in events.data.allEvents" :key="eventData.id">
-        <event-card :eventData="eventData" />
+  <div class="wrapper">
+    <div class="eventCard">
+      <img :src="eventData.imageUrl" class="image1" alt="Image" />
+      <div class="paragragh">
+        <h5>{{ eventData.title }}</h5>
+        <h6>
+          {{ eventData.date }}
+          <img
+            src="~assets/images/Ellipse.svg"
+            style="
+              background: #000;
+              height: 4px;
+              width: 4px;
+              border-radius: 50px;
+              margin-left: 3px;
+              margin-right: 3px;
+            "
+            alt="Ellipse"
+          />
+          {{ eventData.time }}
+        </h6>
+        <p class="text">
+          {{ eventData.description }}
+        </p>
+        <nuxt-link :to="`/events/${eventData.id}`" class="details-link">
+          View details
+          <img src="~assets/images/arrow-up.svg" alt="Arrow Up" />
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  props: {
+    eventData: {
+      type: Object,
+      required: true,
+      default: () => ({
+        id: "",
+        title: "",
+        date: "",
+        time: "",
+        imageUrl: "",
+        description: "",
+      }),
+    },
+  },
+};
+</script>
+
 <style scoped>
-div.trending-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-div.trending-heading {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px;
-}
-
-div.trending-heading h4 {
-  color: #000;
-  font-size: 30px;
-  font-family: "GilroySemiBold";
-  line-height: 18.75px;
-}
-
-.custom-link {
-  text-decoration: none;
-  font-family: "GilroySemiBold";
-  font-size: 16px;
-  color: #432361;
-}
+/* Trending Container */
 
 div.trending-heading img,
 .details-link img {
@@ -63,7 +60,10 @@ div.trending-heading img,
   top: 5px;
 }
 
-/* Trending Container */
+div.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 div.trending-container {
   display: flex;
   justify-content: space-between;
@@ -72,12 +72,14 @@ div.trending-container {
 }
 
 img.image1 {
-  width: 421px;
-  height: 240px;
+  /* width: 421px;
+  height: 240px; */
   border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: auto;
 }
 
-div.image-container_1 {
+div.eventCard {
   background: #fff;
   border-radius: 10px;
   width: 421px;
@@ -109,6 +111,7 @@ p {
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: "GilroyRegular";
+  text-align: justify;
 }
 
 .details-link {
@@ -143,7 +146,7 @@ p {
     align-items: center;
   }
 
-  div.image-container_1 {
+  div.eventCard {
     width: 100%;
     max-width: 350px;
   }

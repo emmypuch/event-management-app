@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hero-img">
-      <img src="~assets/images/hero2.png" />
+      <img :src="eventDetail.imageUrl" alt="" class="responsive-image" />
     </div>
 
     <!-- what I said section -->
@@ -17,26 +17,7 @@
       <div class="map-content">
         <h6>Event description</h6>
         <p class="map-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-          sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {{ eventDetail.description }}
         </p>
         <div class="ticket">
           <h6>Tickets Pricing</h6>
@@ -63,6 +44,14 @@
         <div>
           <!-- <GoogleMap /> -->
           <!-- <img src="~assets/images/basket.png" /> -->
+          <!-- <GoogleMap
+            api-key="MY_API_KEY"
+            style="width: 100%; height: 300px"
+            :center="center"
+            :zoom="15"
+          >
+            <Marker :options="{ position: center }" />
+          </GoogleMap> -->
         </div>
       </div>
     </div>
@@ -70,21 +59,32 @@
 </template>
 
 <script>
-import BuyNowButton from "~/components/BuyNowButton.vue";
-import WhatISaid from "~/components/WhatISaid.vue";
-
-definePageMeta({ layout: "details" });
 export default {
-  components: { BuyNowButton, WhatISaid },
-  methods: {
-    handleBuyNowClick() {
-      console.log("hello");
+  props: {
+    eventDetail: {
+      type: Object,
+      required: true,
+      default: () => ({
+        id: "",
+        title: "",
+        date: "",
+        time: "",
+        imageUrl: "",
+        description: "",
+      }),
     },
   },
 };
 </script>
 
 <style scoped>
+.responsive-image {
+  width: 100%;
+  max-height: 100%;
+  height: 480px;
+  border-radius: 10px;
+}
+
 div.map-wrapper {
   display: flex;
   justify-content: space-between;
@@ -96,12 +96,8 @@ div.hero-img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-}
-
-div.hero-img img {
-  max-width: 100%;
-  height: auto;
+  margin-top: 15px;
+  padding: 50px;
 }
 
 div.map-content,
@@ -157,6 +153,14 @@ div.ticketing {
 }
 
 @media screen and (max-width: 768px) {
+  .responsive-image {
+    height: 380px;
+  }
+
+  div.hero-img {
+    padding: 20px;
+  }
+
   div.map-wrapper {
     display: flex;
     flex-direction: column;
@@ -203,6 +207,10 @@ div.ticketing {
 }
 
 @media screen and (max-width: 480px) {
+  .responsive-image {
+    height: 300px;
+  }
+
   div.map-wrapper {
     gap: 30px;
     padding: 20px;

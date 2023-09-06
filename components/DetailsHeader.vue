@@ -126,23 +126,52 @@ header ul li {
   margin-right: 10px;
 }
 
-.hamburger-menu {
-  display: hidden;
-}
-
 @media screen and (max-width: 768px) {
   .nav-container {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .hamburger-menu {
     margin-top: 20px;
   }
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-open .mobile-menu {
+    display: block;
+  }
+
   .buttons {
     margin-top: 20px;
     text-align: center;
+  }
+
+  .btn-login,
+  .btn-signup {
+    margin: 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 10px;
+    line-height: 18.75px;
+    font-family: "GilroyBold";
+    transition: background-color 0.3s;
+  }
+
+  .btn-login {
+    margin-right: 0;
+  }
+
+  .btn-signup {
+    margin-right: 10px;
   }
 
   .bar {

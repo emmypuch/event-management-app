@@ -3,7 +3,7 @@
     <div class="container">
       <div>
         <h4>Discover a World of Events Tailored Just for You.</h4>
-        <nuxt-link to="/details" class="custom-link">View all events</nuxt-link>
+        <nuxt-link to="/events" class="custom-link">View all events</nuxt-link>
       </div>
 
       <div class="grid">
@@ -37,6 +37,7 @@ div.container {
   display: flex;
   justify-content: space-between;
   padding: 50px;
+  margin-top: 10rem;
 }
 
 div.grid {

@@ -4,12 +4,16 @@
       <header>
         <div class="nav-container">
           <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
-          <div class="hamburger-menu">
+          <div
+            class="hamburger-menu"
+            @click="toggleMobileMenu"
+            :class="{ active: mobileMenuOpen }"
+          >
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
           </div>
-          <nav>
+          <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
             <ul>
               <li>
                 <NuxtLink to="/" class="custom-link" target="_blank"
@@ -57,13 +61,22 @@
   </div>
 </template>
 
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<script>
+export default {
+  data() {
+    return {
+      mobileMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen;
+    },
+  },
+};
+</script>
 
+<style scoped>
 header .nav-container {
   display: flex;
   justify-content: space-between;
@@ -206,6 +219,23 @@ p.hero-paragragh {
     display: flex;
   }
 
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hamburger-menu {
+    margin-top: 20px;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-open .mobile-menu {
+    display: block;
+  }
+
   .buttons {
     margin-top: 20px;
   }
@@ -231,7 +261,7 @@ p.hero-paragragh {
   }
 
   p.hero-paragragh {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 </style>

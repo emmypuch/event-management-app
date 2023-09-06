@@ -125,9 +125,6 @@ button {
   }
 
   .search-input-container {
-    /* flex-direction: column;
-    align-items: flex-start;
-    height: auto; */
     padding: 20px;
   }
 
@@ -149,7 +146,6 @@ button {
   }
 
   .vertical-line {
-    /* margin-left: 12px; */
     display: none;
   }
 

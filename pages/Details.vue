@@ -41,17 +41,16 @@
 
       <div class="map">
         <h6>Directions</h6>
-        <div>
-          <!-- <GoogleMap /> -->
-          <!-- <img src="~assets/images/basket.png" /> -->
-          <!-- <GoogleMap
-            api-key="MY_API_KEY"
-            style="width: 100%; height: 300px"
-            :center="center"
-            :zoom="15"
-          >
-            <Marker :options="{ position: center }" />
-          </GoogleMap> -->
+        <div class="map-container">
+          <iframe
+            width="100%"
+            height="300"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            :src="getGoogleMapUrl"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -71,13 +70,36 @@ export default {
         time: "",
         imageUrl: "",
         description: "",
+        // Add latitude and longitude properties for the map location
+        latitude: 10.179,
+        longitude: 7.3661,
       }),
+    },
+  },
+
+  computed: {
+    getGoogleMapUrl() {
+      return `https://maps.google.com/maps?q=${this.eventDetail.latitude},${this.eventDetail.longitude}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
     },
   },
 };
 </script>
 
 <style scoped>
+.map-container {
+  width: 400px;
+  height: 515px;
+  padding-bottom: 75%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.map-container iframe {
+  width: 400px;
+  height: 515px;
+}
+
 .responsive-image {
   width: 100%;
   max-height: 100%;
@@ -90,6 +112,7 @@ div.map-wrapper {
   justify-content: space-between;
   gap: 70px;
   padding: 50px;
+  margin-top: 20px;
 }
 
 div.hero-img {
@@ -204,6 +227,16 @@ div.ticketing {
     left: 0px;
     margin-top: 30px;
   }
+
+  .map-container {
+    width: 400px;
+    height: 515px;
+  }
+
+  .map-container iframe {
+    width: 400px;
+    height: 515px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -252,6 +285,19 @@ div.ticketing {
     position: relative;
     left: 0px;
     margin-top: 30px;
+  }
+
+  .map-container {
+    width: 300px;
+    height: 515px;
+  }
+
+  .map-container iframe {
+    width: 300px;
+    height: 515px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
 }
 </style>

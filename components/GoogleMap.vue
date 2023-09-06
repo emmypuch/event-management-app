@@ -1,10 +1,10 @@
 <template>
   <div>
     <GoogleMap
-      api-key="MY_API_KEY"
+      :api-key="apiKey"
       style="width: 100%; height: 500px"
       :center="center"
-      :zoom="15"
+      :zoom="zoom"
     >
       <Marker :options="{ position: center }" />
     </GoogleMap>
@@ -12,15 +12,39 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import { GoogleMap, Marker } from "vue3-google-map";
 
 export default defineComponent({
   components: { GoogleMap, Marker },
-  setup() {
-    const center = { lat: 40.689247, lng: -74.044502 };
+  props: {
+    apiKey: {
+      type: String,
+      required: true,
+    },
+    latitude: {
+      type: Number,
+      required: true,
+    },
+    longitude: {
+      type: Number,
+      required: true,
+    },
+    initialZoom: {
+      type: Number,
+      default: 15,
+    },
+  },
+  setup(props) {
+    const center = ref({ lat: props.latitude, lng: props.longitude });
+    const zoom = ref(props.initialZoom);
 
-    return { center };
+    // Watch for changes in latitude and longitude props
+    watch([() => props.latitude, () => props.longitude], ([newLat, newLng]) => {
+      center.value = { lat: newLat, lng: newLng };
+    });
+
+    return { center, zoom };
   },
 });
 </script>

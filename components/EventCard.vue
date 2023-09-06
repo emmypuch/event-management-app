@@ -17,11 +17,20 @@
               margin-right: 3px;
             "
             alt="Ellipse"
+            @click="toggleDescription"
+            v-if="showEllipsis"
+            class="ellipsis"
           />
           {{ eventData.time }}
         </h6>
-        <p class="text">
-          {{ eventData.description }}
+        <p
+          class="text"
+          @click="toggleDescription"
+          :class="{ 'overflow-hidden': !showFullDescription }"
+        >
+          {{
+            showFullDescription ? eventData.description : truncatedDescription
+          }}
         </p>
         <nuxt-link :to="`/events/${eventData.id}`" class="details-link">
           View details
@@ -48,10 +57,43 @@ export default {
       }),
     },
   },
+
+  data() {
+    return {
+      showFullDescription: false,
+    };
+  },
+
+  //   Limit the character
+  computed: {
+    truncatedDescription() {
+      const maxCharacters = 50;
+      if (this.eventData.description.length <= maxCharacters) {
+        return this.eventData.description;
+      } else {
+        return this.eventData.description.substring(0, maxCharacters) + "...";
+      }
+    },
+    showEllipsis() {
+      return this.eventData.description.length > 100;
+    },
+  },
+  methods: {
+    toggleDescription() {
+      this.showFullDescription = !this.showFullDescription;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.overflow-hidden {
+  max-height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Trending Container */
 
 div.trending-heading img,
@@ -83,7 +125,7 @@ div.eventCard {
   background: #fff;
   border-radius: 10px;
   width: 421px;
-  height: 470px;
+  height: 500px;
   border: 1px solid #e0e0e0;
 }
 
@@ -149,6 +191,7 @@ p {
   div.eventCard {
     width: 100%;
     max-width: 350px;
+    height: 400px;
   }
 
   img.image1 {

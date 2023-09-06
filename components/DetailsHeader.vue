@@ -37,7 +37,7 @@
           </ul>
         </nav>
         <div class="buttons">
-          <nuxt-link to="/login" class="btn-login">Login</nuxt-link>
+          <nuxt-link to="/" class="btn-login">Login</nuxt-link>
           <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
         </div>
       </div>

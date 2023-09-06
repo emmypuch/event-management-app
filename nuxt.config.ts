@@ -3,10 +3,4 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
   css: ['~/assets/css/reset.css', '~/assets/css/main.css'],
-//   modules: [
-//   ['nuxt-gmaps', {
-//     key: 'MY_API_KEY',
-//     libraries: ['places'],
-//   }]
-// ]
 })

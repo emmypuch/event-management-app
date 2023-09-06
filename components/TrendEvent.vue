@@ -1,10 +1,22 @@
 <script setup>
+import { computed, ref } from "vue";
+
 const { pending, data: events } = await useFetch(
   "https://rendezvous-events.onrender.com/events",
   {
     lazy: true,
+    mode: "no-cors",
   }
 );
+
+const currentPage = ref(0);
+const itemsPerPage = ref(3);
+
+const paginatedEvents = computed(() => {
+  const startIndex = currentPage.value * itemsPerPage.value;
+  const endIndex = startIndex + itemsPerPage.value;
+  return events?._rawValue?.data?.allEvents?.slice(startIndex, endIndex);
+});
 </script>
 
 <template>
@@ -23,7 +35,7 @@ const { pending, data: events } = await useFetch(
 
     <!-- Trending Container Section -->
     <div class="trending-container">
-      <div v-for="eventData in events.data.allEvents" :key="eventData.id">
+      <div v-for="eventData in paginatedEvents" :key="eventData.id">
         <event-card :eventData="eventData" />
       </div>
     </div>

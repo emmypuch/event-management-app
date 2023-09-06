@@ -118,7 +118,8 @@ img.image1 {
   height: 240px; */
   border-radius: 10px 10px 0px 0px;
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: contain;
 }
 
 div.eventCard {

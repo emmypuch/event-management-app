@@ -68,9 +68,13 @@ export default {
         title: "",
         date: "",
         time: "",
+        address: "",
+        city: "",
+        country: "",
+        price: "",
+        category: "",
         imageUrl: "",
         description: "",
-        // Add latitude and longitude properties for the map location
         latitude: 10.179,
         longitude: 7.3661,
       }),
@@ -295,9 +299,6 @@ div.ticketing {
   .map-container iframe {
     width: 300px;
     height: 515px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
   }
 }
 </style>

@@ -29,12 +29,12 @@
           <div class="flex-ticket">
             <div class="single">
               <h5>Single</h5>
-              <p>{{ eventDetail.price === 0 ? "FREE" : eventDetail.price }}</p>
+              <p>{{ !eventDetail.price ? "FREE" : eventDetail.price }}</p>
             </div>
 
             <div class="pair">
               <h5>Pair</h5>
-              <p>{{ eventDetail.price === 0 ? "FREE" : eventDetail.price }}</p>
+              <p>{{ !eventDetail.price ? "FREE" : eventDetail.price }}</p>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ div.category-heading {
   div.map-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0px 30px 0px 20px;
   }
 
   div.map-content h6,
@@ -254,12 +254,12 @@ div.category-heading {
   }
 
   div.category-heading {
-    padding: 20px 0px 5px 0px;
+    padding: 20px 0px 5px 20px;
   }
 
   div.category-heading h6,
   div.category-heading p {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 10px;
   }
 }
@@ -271,7 +271,7 @@ div.category-heading {
 
   div.map-wrapper {
     gap: 30px;
-    padding: 20px;
+    padding: 0px 0px 0px 20px;
   }
 
   div.map-content h6,

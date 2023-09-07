@@ -16,12 +16,12 @@
 </template>
 
 <style scoped>
-.social-flex {
+/* .social-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
+} */
 
 .social-media-links {
   display: flex;

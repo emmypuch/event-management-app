@@ -24,9 +24,7 @@
     </div>
 
     <div class="flex-time">
-      <h6>
-        <img src="~assets/images/User.svg" alt="User" /> {{ eventDetails.id }}
-      </h6>
+      <h6><img src="~assets/images/User.svg" alt="User" /> FK, Jollz</h6>
     </div>
   </div>
 </template>

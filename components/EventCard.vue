@@ -114,8 +114,6 @@ div.trending-container {
 }
 
 img.image1 {
-  /* width: 421px;
-  height: 240px; */
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   height: 300px;

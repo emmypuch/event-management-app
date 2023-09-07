@@ -6,12 +6,17 @@
 
     <!-- what I said section -->
     <div>
-      <what-i-said />
+      <what-i-said :eventDetails="eventDetail" />
     </div>
 
     <!-- Map Section -->
     <div class="ticketing">
-      <social-media-links />
+      <social-media-links :eventDetails="eventDetails" />
+    </div>
+
+    <div class="category-heading">
+      <h6>Event Category</h6>
+      <p>{{ eventDetail.category }}</p>
     </div>
     <div class="map-wrapper">
       <div class="map-content">
@@ -24,12 +29,12 @@
           <div class="flex-ticket">
             <div class="single">
               <h5>Single</h5>
-              <p>NGN 5,000</p>
+              <p>{{ eventDetail.price === 0 ? "FREE" : eventDetail.price }}</p>
             </div>
 
             <div class="pair">
               <h5>Pair</h5>
-              <p>NGN 9,000</p>
+              <p>{{ eventDetail.price === 0 ? "FREE" : eventDetail.price }}</p>
             </div>
           </div>
 
@@ -135,13 +140,15 @@ div.ticket {
 
 div.map-content h6,
 div.map h6,
-div.ticket h6 {
+div.ticket h6,
+div.category-heading h6 {
   line-height: 18.75px;
   font-size: 16px;
   font-family: "GilroyBold";
 }
 
-div.map-content p {
+div.map-content p,
+div.category-heading p {
   line-height: 18.75px;
   font-size: 16px;
   font-family: "GilroyRegular";
@@ -177,6 +184,10 @@ div.button {
 div.ticketing {
   position: absolute;
   left: 970px;
+}
+
+div.category-heading {
+  padding: 20px 0px 0px 60px;
 }
 
 @media screen and (max-width: 768px) {
@@ -240,6 +251,10 @@ div.ticketing {
   .map-container iframe {
     width: 400px;
     height: 515px;
+  }
+
+  div.category-heading {
+    padding: 20px;
   }
 }
 

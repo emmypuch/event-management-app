@@ -2,13 +2,13 @@
   <div class="social-flex">
     <div><h6>Contact organizers</h6></div>
     <div class="social-media-links">
-      <a href="#" target="_blank">
+      <a href="#">
         <img src="~assets/images/email.svg" alt="Email Icon" />
       </a>
-      <a href="#" target="_blank">
+      <a href="#">
         <img src="~assets/images/twitter.svg" alt="Twitter Icon" />
       </a>
-      <a href="#" target="_blank">
+      <a href="#">
         <img src="~assets/images/Ig.svg" alt="Instagram Icon" />
       </a>
     </div>

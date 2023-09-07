@@ -9,9 +9,9 @@
             @click="toggleMobileMenu"
             :class="{ active: mobileMenuOpen }"
           >
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
           </div>
           <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
             <ul>
@@ -81,6 +81,7 @@ header .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 nav {
@@ -108,6 +109,8 @@ div.nav-container {
   border-radius: 20px;
   padding: 12px, 24px, 12px, 24px;
   height: 80px;
+  z-index: 1;
+  transition: background-color 0.3s;
 }
 
 header nav ul {
@@ -186,15 +189,6 @@ p.hero-paragragh {
     padding: 0px;
   }
 
-  /* div.nav-container {
-    top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border-radius: 20px;
-    padding: 12px, 24px, 12px, 24px;
-    height: 80px;
-  } */
-
   .nav-container {
     top: 30px;
     margin: 0 30px;
@@ -217,6 +211,7 @@ p.hero-paragragh {
 
   .hamburger-menu {
     display: flex;
+    z-index: 2;
   }
 
   .nav-container {

@@ -119,7 +119,6 @@ img.image1 {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   height: 300px;
-  object-fit: contain;
 }
 
 div.eventCard {

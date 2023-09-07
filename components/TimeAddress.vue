@@ -4,28 +4,38 @@
       <div class="weekly" style="display: flex">
         <div>
           <h6>
-            <img src="~assets/images/Calendar.svg" alt="Calender" /> Sunday,
-            October 3rd, 2023
+            <img src="~assets/images/Calendar.svg" alt="Calender" />
+            {{ eventDetails.date }}
           </h6>
         </div>
         <div>
-          <h6><img src="~assets/images/Time.svg" alt="Time" /> 6PM</h6>
+          <h6>
+            <img src="~assets/images/Time.svg" alt="Time" />
+            {{ eventDetails.time }}
+          </h6>
         </div>
       </div>
     </div>
     <div class="flex-time">
       <h6>
         <img src="~assets/images/Location.svg" alt="Location" />
-        Race Course, 8/9 Marina, Onikan, Lagos Lagos, 4aa Force Rd, Lagos Island
-        102273, Lagos
+        {{ eventDetails.address }}
       </h6>
     </div>
 
     <div class="flex-time">
-      <h6><img src="~assets/images/User.svg" alt="User" /> FK, Jollz</h6>
+      <h6>
+        <img src="~assets/images/User.svg" alt="User" /> {{ eventDetails.id }}
+      </h6>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["eventDetails"],
+};
+</script>
 
 <style scoped>
 div.flex-time {

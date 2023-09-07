@@ -1,43 +1,48 @@
 <script setup>
 import EventCard from "../../components/EventCard.vue";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
+const currentPage = ref(1);
 
-const { pending, data: events } = await useFetch(
-  "https://rendezvous-events.onrender.com/events",
+const events = ref([]);
+const { pending, data } = await useFetch(
+  `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
   {
     lazy: true,
     mode: "no-cors",
   }
 );
+if (data) {
+  events.value = data.value.data.allEvents;
+}
+// console.log(events.value);
 
-const currentPage = ref(0);
-const itemsPerPage = ref(3);
-const searchValue = ref("");
+// const itemsPerPage = ref(10);
+// const searchValue = ref("");
 
-const searchResult = computed(() => {
-  if (searchValue.value == "") {
-    return events?._rawValue?.data?.allEvents;
-  } else {
-    return events?._rawValue?.data?.allEvents?.filter((item) => {
-      return item.title?.includes(searchValue.value);
-    });
-  }
-});
+// const searchResult = computed(() => {
+//   if (searchValue.value == "") {
+//     return events?._rawValue?.data?.allEvents;
+//   } else {
+//     return events?._rawValue?.data?.allEvents?.filter((item) => {
+//       return item.title?.includes(searchValue.value);
+//     });
+//   }
+// });
 
 const totalPages = computed(() => {
-  return Math.ceil(searchResult.value.length / itemsPerPage.value);
+  return data.value.data.noOfPages;
 });
 
-const paginatedEvents = computed(() => {
-  const startIndex = currentPage.value * itemsPerPage.value;
-  const endIndex = startIndex + itemsPerPage.value;
-  console.log(searchResult.value);
-  return searchResult.value?.slice(startIndex, endIndex);
-});
+// const paginatedEvents = computed(() => {
+//   const startIndex = currentPage.value * itemsPerPage.value;
+//   const endIndex = startIndex + itemsPerPage.value;
+//   //   console.log(searchResult.value);
+//   return searchResult.value?.slice(startIndex, endIndex);
+// });
 
 const nextPage = () => {
-  console.log(totalPages);
-  if (currentPage.value < totalPages.value - 1) {
+  //   console.log(totalPages);
+  if (currentPage.value < totalPages.value) {
     currentPage.value++;
   }
 };
@@ -46,17 +51,36 @@ const previousPage = () => {
     currentPage.value--;
   }
 };
+
+watch(
+  currentPage,
+  async (newPage, oldPage) => {
+    const { pending, data: newData } = await useFetch(
+      `https://rendezvous-events.onrender.com/events?page=3`,
+      {
+        lazy: true,
+        mode: "no-cors",
+      }
+    );
+    console.log(newData);
+    //   events.value = newData.value.data.allEvents;
+  },
+  { immediate: true }
+);
+const eventsToShow = computed(() => events.value);
 </script>
 
 <template>
-  <div class="event-wrapper">
-    <div v-for="eventData in paginatedEvents" :key="eventData.id">
-      <EventCard :eventData="eventData" />
+  <div>
+    <div class="event-wrapper">
+      <div v-for="eventData in eventsToShow" :key="eventData.id">
+        <EventCard :eventData="eventData" />
+      </div>
     </div>
-  </div>
-  <div class="btns">
-    <button @click="previousPage()" class="prev">Prev</button>
-    <button @click="nextPage()" class="next">Next</button>
+    <div class="btns">
+      <button @click="previousPage()" class="prev">Prev</button>
+      <button @click="nextPage()" class="next">Next</button>
+    </div>
   </div>
 </template>
 
@@ -64,6 +88,7 @@ const previousPage = () => {
 div.event-wrapper {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 50px;
   margin-top: 20px;

@@ -37,7 +37,6 @@ div.container {
   display: flex;
   justify-content: space-between;
   padding: 50px;
-  margin-top: 10rem;
 }
 
 div.grid {

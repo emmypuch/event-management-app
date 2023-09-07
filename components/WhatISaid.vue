@@ -3,7 +3,7 @@
     <h5 class="said">I said what I said Live Show</h5>
     <div class="flex-said">
       <div>
-        <time-address />
+        <time-address :eventDetails="eventDetails" />
       </div>
     </div>
   </div>
@@ -15,6 +15,7 @@ import TimeAddress from "~/components/TimeAddress.vue";
 
 export default {
   components: { SocialMediaLinks, TimeAddress },
+  props: ["eventDetails"],
 };
 </script>
 
@@ -26,7 +27,7 @@ div.ticketing {
 
 h5.said {
   padding-left: 65px;
-  margin-top: 30px;
+  margin-top: 10px;
   color: #000;
   font-size: 24px;
   font-family: "GilroyBold";

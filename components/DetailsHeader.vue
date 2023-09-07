@@ -2,37 +2,31 @@
   <div>
     <header>
       <div class="nav-container">
-        <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
+        <div>
+          <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
+        </div>
         <div
           class="hamburger-menu"
           @click="toggleMobileMenu"
           :class="{ active: mobileMenuOpen }"
         >
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
         <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
           <ul>
             <li>
-              <NuxtLink to="/" class="custom-link" target="_blank"
-                >Discover</NuxtLink
-              >
+              <NuxtLink to="/" class="custom-link">Discover</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link" target="_blank"
-                >About us</NuxtLink
-              >
+              <NuxtLink to="/" class="custom-link">About us</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link" target="_blank"
-                >FAQs</NuxtLink
-              >
+              <NuxtLink to="/" class="custom-link">FAQs</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link" target="_blank"
-                >Contact us</NuxtLink
-              >
+              <NuxtLink to="/" class="custom-link">Contact us</NuxtLink>
             </li>
           </ul>
         </nav>
@@ -54,6 +48,7 @@ export default {
   },
   methods: {
     toggleMobileMenu() {
+      console.log(this.mobileMenuOpen);
       this.mobileMenuOpen = !this.mobileMenuOpen;
     },
   },
@@ -68,16 +63,11 @@ header .nav-container {
   padding: 20px 60px 0px 60px;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
-header nav ul {
+nav ul {
   display: flex;
 }
 
-header ul li {
+nav ul li {
   font-size: 14px;
   margin: 10px;
   font-family: "GilroyBold";
@@ -127,13 +117,13 @@ header ul li {
 }
 
 @media screen and (max-width: 768px) {
-  .nav-container {
+  nav ul {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .hamburger-menu {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   .menu {
@@ -158,11 +148,6 @@ header ul li {
   .btn-login,
   .btn-signup {
     margin: 0;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 10px;
-    line-height: 18.75px;
-    font-family: "GilroyBold";
     transition: background-color 0.3s;
   }
 

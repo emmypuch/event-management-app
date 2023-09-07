@@ -4,44 +4,9 @@ import { computed, ref, watch } from "vue";
 const currentPage = ref(1);
 
 const events = ref([]);
-// const { pending, data } = await useFetch(
-//   `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
-//   {
-//     lazy: true,
-//     mode: "no-cors",
-//   }
-// );
-// if (data) {
-//   events.value = data.value.data.allEvents;
-// }
-// console.log(events.value);
-
-// const itemsPerPage = ref(10);
-// const searchValue = ref("");
-
-// const searchResult = computed(() => {
-//   if (searchValue.value == "") {
-//     return events?._rawValue?.data?.allEvents;
-//   } else {
-//     return events?._rawValue?.data?.allEvents?.filter((item) => {
-//       return item.title?.includes(searchValue.value);
-//     });
-//   }
-// });
 
 const loadingEvent = ref(false);
 const totalPages = ref(0);
-
-// const totalPages = computed(() => {
-//   return data.value.data.noOfPages;
-// });
-
-// const paginatedEvents = computed(() => {
-//   const startIndex = currentPage.value * itemsPerPage.value;
-//   const endIndex = startIndex + itemsPerPage.value;
-//   //   console.log(searchResult.value);
-//   return searchResult.value?.slice(startIndex, endIndex);
-// });
 
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {

@@ -153,8 +153,8 @@ ul li {
 }
 
 @media screen and (max-width: 768px) {
-  div.wrapper {
-    padding: 20px;
+  header {
+    padding: 10px 30px 5px 30px;
   }
 
   .logo {

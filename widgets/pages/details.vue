@@ -254,7 +254,13 @@ div.category-heading {
   }
 
   div.category-heading {
-    padding: 20px;
+    padding: 20px 0px 5px 0px;
+  }
+
+  div.category-heading h6,
+  div.category-heading p {
+    text-align: center;
+    margin-top: 10px;
   }
 }
 

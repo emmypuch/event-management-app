@@ -205,6 +205,13 @@ div.category-heading {
     padding: 0px 30px 0px 20px;
   }
 
+  div.map-content,
+  div.map,
+  div.ticket {
+    margin-top: 15px;
+    padding: 20px 20px 0px 0px;
+  }
+
   div.map-content h6,
   div.map h6,
   div.ticket h6 {
@@ -259,7 +266,6 @@ div.category-heading {
 
   div.category-heading h6,
   div.category-heading p {
-    /* text-align: center; */
     margin-top: 10px;
   }
 }
@@ -272,6 +278,10 @@ div.category-heading {
   div.map-wrapper {
     gap: 30px;
     padding: 0px 0px 0px 20px;
+  }
+
+  div.map-content {
+    padding: 20px 20px 0px 0px;
   }
 
   div.map-content h6,

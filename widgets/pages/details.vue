@@ -11,7 +11,7 @@
 
     <!-- Map Section -->
     <div class="ticketing">
-      <social-media-links :eventDetails="eventDetails" />
+      <social-media-links :eventDetails="eventDetail" />
     </div>
 
     <div class="category-heading">
@@ -39,7 +39,7 @@
           </div>
 
           <div class="button">
-            <buy-now-button @click="handleBuyNowClick" />
+            <buy-now-button />
           </div>
         </div>
       </div>

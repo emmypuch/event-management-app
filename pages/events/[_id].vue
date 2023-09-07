@@ -1,11 +1,10 @@
 <script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import Details from "./details.vue";
+import Details from "../../widgets/pages/details.vue";
 
 const route = useRoute();
 const id = computed(() => route.params._id);
-console.log("id=", id.value);
 const { pending, data } = await useFetch(
   `https://rendezvous-events.onrender.com/events/${id.value}`,
   {

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import Details from "../details.vue";
+import Details from "./details.vue";
 
 const route = useRoute();
 const id = computed(() => route.params._id);

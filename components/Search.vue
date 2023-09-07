@@ -22,7 +22,7 @@
         <option value="conference">Sports</option>
         <option value="conference">Education</option>
       </select>
-      <button @click="search">Search</button>
+      <button @click="search" class="btn-search">Search</button>
     </div>
   </div>
 </template>
@@ -104,7 +104,7 @@ select option:checked {
   background-color: #f0f0f0;
 }
 
-button {
+button.btn-search {
   padding: 12px 24px 12px 24px;
   background-color: #783ead;
   color: #fff;
@@ -142,15 +142,15 @@ button {
     margin-left: 14px;
     font-size: 12px;
     margin-left: 0;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   .vertical-line {
     display: none;
   }
 
-  button {
-    padding: 12px;
+  button.btn-search {
+    padding: 10px;
   }
 }
 </style>

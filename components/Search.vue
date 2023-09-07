@@ -121,7 +121,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .search-input-container {
@@ -151,7 +151,6 @@ button {
 
   button {
     padding: 12px;
-    margin-top: 10px;
   }
 }
 </style>

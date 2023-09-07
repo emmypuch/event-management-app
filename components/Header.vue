@@ -2,16 +2,20 @@
   <div>
     <div class="background-img">
       <header>
-        <div class="nav-container">
-          <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
-          <div
-            class="hamburger-menu"
-            @click="toggleMobileMenu"
-            :class="{ active: mobileMenuOpen }"
-          >
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="nav-container" :class="{ 'custom-height': mobileMenuOpen }">
+          <div class="wrapper">
+            <div>
+              <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
+            </div>
+            <div
+              class="hamburger-menu"
+              @click="toggleMobileMenu"
+              :class="{ active: mobileMenuOpen }"
+            >
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
           </div>
           <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
             <ul>
@@ -36,11 +40,11 @@
                 >
               </li>
             </ul>
+            <div class="buttons">
+              <nuxt-link to="/" class="btn-login">Login</nuxt-link>
+              <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
+            </div>
           </nav>
-          <div class="buttons">
-            <nuxt-link to="/" class="btn-login">Login</nuxt-link>
-            <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
-          </div>
         </div>
 
         <div class="text-search_container">
@@ -77,16 +81,41 @@ export default {
 </script>
 
 <style scoped>
-header .nav-container {
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 }
 
+div.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
+  flex: 2;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+ul li {
+  font-size: 14px;
+  margin: 10px;
+  font-family: "GilroyBold";
 }
 
 div.background-img {
@@ -111,16 +140,6 @@ div.nav-container {
   height: 80px;
   z-index: 1;
   transition: background-color 0.3s;
-}
-
-header nav ul {
-  display: flex;
-}
-
-header ul li {
-  font-size: 14px;
-  margin: 10px;
-  font-family: "GilroyBold";
 }
 
 .custom-link {
@@ -183,19 +202,14 @@ p.hero-paragragh {
   line-height: 37.5px;
 }
 
+.mobile-menu-open {
+  display: flex;
+}
+
 @media screen and (max-width: 768px) {
   div.background-img {
     height: 540px;
     padding: 0px;
-  }
-
-  .nav-container {
-    top: 30px;
-    margin: 0 30px;
-    padding: 20px;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .logo {
@@ -203,31 +217,25 @@ p.hero-paragragh {
     margin-bottom: 20px;
   }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hamburger-menu {
-    display: flex;
-    z-index: 2;
-  }
-
   .nav-container {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
   }
 
-  .hamburger-menu {
-    margin-top: 20px;
+  .nav-container.custom-height {
+    height: 400px;
   }
 
-  .mobile-menu {
+  nav {
     display: none;
   }
 
-  .mobile-menu-open .mobile-menu {
+  .hamburger-menu {
+    position: relative;
+    right: 20px;
+  }
+
+  .mobile-menu-open {
     display: block;
   }
 
@@ -245,14 +253,34 @@ p.hero-paragragh {
     flex-direction: column;
   }
 
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #432361;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Search Input */
   div.text-search_container {
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
 
   p {
     font-size: 20px;
-    margin-bottom: 15px;
   }
 
   p.hero-paragragh {

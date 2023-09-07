@@ -41,10 +41,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .social-media-links {
-    flex-direction: column;
-  }
-
   .social-media-links a {
     margin-top: 5px;
   }

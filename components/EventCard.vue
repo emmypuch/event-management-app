@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="eventCard">
-      <img :src="eventData.imageUrl" class="image1" alt="Image" />
+      <img :src="eventData.imageUrl" class="image" alt="Image" />
       <div class="paragragh">
         <h5>{{ eventData.title }}</h5>
         <h6>
@@ -113,17 +113,17 @@ div.trending-container {
   padding: 50px;
 }
 
-img.image1 {
+img.image {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
-  height: 300px;
+  aspect-ratio: 1/1;
 }
 
 div.eventCard {
   background: #fff;
   border-radius: 10px;
   width: 421px;
-  height: 500px;
+  height: 580px;
   border: 1px solid #e0e0e0;
 }
 
@@ -189,10 +189,10 @@ p {
   div.eventCard {
     width: 100%;
     max-width: 350px;
-    height: 400px;
+    height: 480px;
   }
 
-  img.image1 {
+  img.image {
     width: 100%;
     height: auto;
   }

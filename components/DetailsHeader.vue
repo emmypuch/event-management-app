@@ -1,39 +1,49 @@
 <template>
   <div>
     <header>
-      <div class="nav-container">
-        <div>
-          <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
-        </div>
-        <div
-          class="hamburger-menu"
-          @click="toggleMobileMenu"
-          :class="{ active: mobileMenuOpen }"
-        >
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+      <div class="nav-container" :class="{ 'custom-height': mobileMenuOpen }">
+        <div class="wrapper">
+          <div>
+            <NuxtLink to="/" class="logo">rendezvous</NuxtLink>
+          </div>
+          <div
+            class="hamburger-menu"
+            @click="toggleMobileMenu"
+            :class="{ active: mobileMenuOpen }"
+          >
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
         </div>
         <nav :class="{ 'mobile-menu-open': mobileMenuOpen }">
           <ul>
             <li>
-              <NuxtLink to="/" class="custom-link">Discover</NuxtLink>
+              <NuxtLink to="/" class="custom-link" target="_blank"
+                >Discover</NuxtLink
+              >
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link">About us</NuxtLink>
+              <NuxtLink to="/" class="custom-link" target="_blank"
+                >About us</NuxtLink
+              >
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link">FAQs</NuxtLink>
+              <NuxtLink to="/" class="custom-link" target="_blank"
+                >FAQs</NuxtLink
+              >
             </li>
             <li>
-              <NuxtLink to="/" class="custom-link">Contact us</NuxtLink>
+              <NuxtLink to="/" class="custom-link" target="_blank"
+                >Contact us</NuxtLink
+              >
             </li>
           </ul>
+          <div class="buttons">
+            <nuxt-link to="/" class="btn-login">Login</nuxt-link>
+            <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
+          </div>
         </nav>
-        <div class="buttons">
-          <nuxt-link to="/" class="btn-login">Login</nuxt-link>
-          <nuxt-link to="/" class="btn-signup">Sign Up</nuxt-link>
-        </div>
       </div>
     </header>
   </div>
@@ -48,7 +58,6 @@ export default {
   },
   methods: {
     toggleMobileMenu() {
-      console.log(this.mobileMenuOpen);
       this.mobileMenuOpen = !this.mobileMenuOpen;
     },
   },
@@ -56,18 +65,41 @@ export default {
 </script>
 
 <style scoped>
-header .nav-container {
+header {
+  padding: 20px 60px 10px 60px;
+}
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px 0px 60px;
+  position: relative;
+}
+
+div.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex: 2;
+}
+
+.mobile-nav {
+  display: none;
 }
 
 nav ul {
   display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
-nav ul li {
+ul li {
   font-size: 14px;
   margin: 10px;
   font-family: "GilroyBold";
@@ -116,47 +148,54 @@ nav ul li {
   margin-right: 10px;
 }
 
+.mobile-menu-open {
+  display: flex;
+}
+
 @media screen and (max-width: 768px) {
-  nav ul {
+  div.wrapper {
+    padding: 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .nav-container {
     display: flex;
     flex-direction: column;
   }
 
-  .hamburger-menu {
-    margin-top: 5px;
+  .nav-container.custom-height {
+    height: 400px;
   }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .mobile-menu {
+  nav {
     display: none;
   }
 
-  .mobile-menu-open .mobile-menu {
+  .hamburger-menu {
+    position: relative;
+    right: 20px;
+  }
+
+  .mobile-menu-open {
     display: block;
   }
 
   .buttons {
     margin-top: 20px;
-    text-align: center;
   }
 
-  .btn-login,
-  .btn-signup {
-    margin: 0;
-    transition: background-color 0.3s;
+  ul li {
+    margin: 10px;
   }
 
-  .btn-login {
-    margin-right: 0;
-  }
-
-  .btn-signup {
-    margin-right: 10px;
+  header nav ul,
+  .buttons {
+    display: flex;
+    flex-direction: column;
   }
 
   .bar {

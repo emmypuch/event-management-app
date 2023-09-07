@@ -19,8 +19,6 @@ definePageMeta({
 });
 
 const event = computed(() => data?.value?.data?.event);
-
-// console.log(data.value.data.event);
 </script>
 
 <template>

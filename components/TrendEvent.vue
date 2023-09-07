@@ -148,6 +148,7 @@ p {
   div.trending-heading h4 {
     font-size: 20px;
     align-items: center;
+    margin-top: 3px;
   }
 
   .custom-link {

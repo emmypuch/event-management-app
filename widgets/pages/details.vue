@@ -39,7 +39,7 @@
           </div>
 
           <div class="button">
-            <buy-now-button />
+            <ButtonBuyButton />
           </div>
         </div>
       </div>

@@ -4,16 +4,16 @@ import { computed, ref, watch } from "vue";
 const currentPage = ref(1);
 
 const events = ref([]);
-const { pending, data } = await useFetch(
-  `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
-  {
-    lazy: true,
-    mode: "no-cors",
-  }
-);
-if (data) {
-  events.value = data.value.data.allEvents;
-}
+// const { pending, data } = await useFetch(
+//   `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
+//   {
+//     lazy: true,
+//     mode: "no-cors",
+//   }
+// );
+// if (data) {
+//   events.value = data.value.data.allEvents;
+// }
 // console.log(events.value);
 
 // const itemsPerPage = ref(10);
@@ -29,9 +29,12 @@ if (data) {
 //   }
 // });
 
-const totalPages = computed(() => {
-  return data.value.data.noOfPages;
-});
+const loadingEvent = ref(false);
+const totalPages = ref(0);
+
+// const totalPages = computed(() => {
+//   return data.value.data.noOfPages;
+// });
 
 // const paginatedEvents = computed(() => {
 //   const startIndex = currentPage.value * itemsPerPage.value;
@@ -41,9 +44,8 @@ const totalPages = computed(() => {
 // });
 
 const nextPage = () => {
-  //   console.log(totalPages);
   if (currentPage.value < totalPages.value) {
-    currentPage.value++;
+    currentPage.value += 1;
   }
 };
 const previousPage = () => {
@@ -55,15 +57,18 @@ const previousPage = () => {
 watch(
   currentPage,
   async (newPage, oldPage) => {
+    console.log(newPage, oldPage);
     const { pending, data: newData } = await useFetch(
-      `https://rendezvous-events.onrender.com/events?page=3`,
+      `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
       {
         lazy: true,
         mode: "no-cors",
       }
     );
     console.log(newData);
-    //   events.value = newData.value.data.allEvents;
+    totalPages.value = newData.value.data.noOfPages;
+    events.value = newData.value.data.allEvents;
+    console.log(pending);
   },
   { immediate: true }
 );

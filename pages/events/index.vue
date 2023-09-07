@@ -1,16 +1,43 @@
 <script setup>
 import EventCard from "../../components/EventCard.vue";
-import { computed, ref, watch } from "vue";
-const currentPage = ref(1);
+import { computed, ref } from "vue";
 
-const events = ref([]);
+const { pending, data: events } = await useFetch(
+  "https://rendezvous-events.onrender.com/events",
+  {
+    lazy: true,
+  }
+);
 
-const loadingEvent = ref(false);
-const totalPages = ref(0);
+const currentPage = ref(0);
+const itemsPerPage = ref(3);
+const searchValue = ref("");
+
+const searchResult = computed(() => {
+  if (searchValue.value == "") {
+    return events?._rawValue?.data?.allEvents;
+  } else {
+    return events?._rawValue?.data?.allEvents?.filter((item) => {
+      return item.title?.includes(searchValue.value);
+    });
+  }
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(searchResult.value.length / itemsPerPage.value);
+});
+
+const paginatedEvents = computed(() => {
+  const startIndex = currentPage.value * itemsPerPage.value;
+  const endIndex = startIndex + itemsPerPage.value;
+  console.log(searchResult.value);
+  return searchResult.value?.slice(startIndex, endIndex);
+});
 
 const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value += 1;
+  console.log(totalPages);
+  if (currentPage.value < totalPages.value - 1) {
+    currentPage.value++;
   }
 };
 const previousPage = () => {
@@ -18,32 +45,12 @@ const previousPage = () => {
     currentPage.value--;
   }
 };
-
-watch(
-  currentPage,
-  async (newPage, oldPage) => {
-    console.log(newPage, oldPage);
-    const { pending, data: newData } = await useFetch(
-      `https://rendezvous-events.onrender.com/events?page=${currentPage.value}`,
-      {
-        lazy: true,
-        mode: "no-cors",
-      }
-    );
-    console.log(newData);
-    totalPages.value = newData.value.data.noOfPages;
-    events.value = newData.value.data.allEvents;
-    console.log(pending);
-  },
-  { immediate: true }
-);
-const eventsToShow = computed(() => events.value);
 </script>
 
 <template>
   <div>
     <div class="event-wrapper">
-      <div v-for="eventData in eventsToShow" :key="eventData.id">
+      <div v-for="eventData in paginatedEvents" :key="eventData.id">
         <EventCard :eventData="eventData" />
       </div>
     </div>

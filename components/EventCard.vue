@@ -189,7 +189,7 @@ p {
   div.eventCard {
     width: 100%;
     max-width: 350px;
-    height: 480px;
+    height: 490px;
   }
 
   img.image {

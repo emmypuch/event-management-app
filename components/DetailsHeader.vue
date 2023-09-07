@@ -175,6 +175,14 @@ ul li {
     display: none;
   }
 
+  .btn-login {
+    text-align: center;
+  }
+
+  .btn-signup {
+    margin-top: 10px;
+  }
+
   .hamburger-menu {
     position: relative;
     right: 20px;
@@ -196,6 +204,7 @@ ul li {
   .buttons {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .bar {

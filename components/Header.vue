@@ -212,6 +212,14 @@ p.hero-paragragh {
     padding: 0px;
   }
 
+  .btn-login {
+    text-align: center;
+  }
+
+  .btn-signup {
+    margin-top: 10px;
+  }
+
   .logo {
     font-size: 24px;
     margin-bottom: 20px;
@@ -239,10 +247,6 @@ p.hero-paragragh {
     display: block;
   }
 
-  .buttons {
-    margin-top: 20px;
-  }
-
   ul li {
     margin: 10px;
   }
@@ -251,6 +255,7 @@ p.hero-paragragh {
   .buttons {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .bar {

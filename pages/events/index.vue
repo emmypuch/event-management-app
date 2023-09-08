@@ -6,6 +6,7 @@ const { pending, data: events } = await useFetch(
   "https://rendezvous-events.onrender.com/events",
   {
     lazy: true,
+    mode: "no-cors",
   }
 );
 
@@ -30,12 +31,10 @@ const totalPages = computed(() => {
 const paginatedEvents = computed(() => {
   const startIndex = currentPage.value * itemsPerPage.value;
   const endIndex = startIndex + itemsPerPage.value;
-  console.log(searchResult.value);
   return searchResult.value?.slice(startIndex, endIndex);
 });
 
 const nextPage = () => {
-  console.log(totalPages);
   if (currentPage.value < totalPages.value - 1) {
     currentPage.value++;
   }

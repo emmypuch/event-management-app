@@ -114,6 +114,7 @@ button.btn-search {
   cursor: pointer;
   font-family: "GilroySemiBold";
   margin-left: 7px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {
@@ -125,7 +126,7 @@ button.btn-search {
   }
 
   .search-input-container {
-    padding: 20px;
+    padding: 10px;
   }
 
   .search-label img {
@@ -133,14 +134,14 @@ button.btn-search {
   }
 
   .search-label input {
-    font-size: 12px;
+    font-size: 10px;
     width: 100%;
     margin-top: 10px;
   }
 
   select {
     margin-left: 14px;
-    font-size: 12px;
+    font-size: 10px;
     margin-left: 0;
     margin-top: 10px;
   }
@@ -151,6 +152,7 @@ button.btn-search {
 
   button.btn-search {
     padding: 10px;
+    font-size: 10px;
   }
 }
 </style>

@@ -134,14 +134,14 @@ button.btn-search {
   }
 
   .search-label input {
-    font-size: 10px;
+    font-size: 11px;
     width: 100%;
     margin-top: 10px;
   }
 
   select {
     margin-left: 14px;
-    font-size: 10px;
+    font-size: 11px;
     margin-left: 0;
     margin-top: 10px;
   }
@@ -152,7 +152,7 @@ button.btn-search {
 
   button.btn-search {
     padding: 10px;
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 </style>

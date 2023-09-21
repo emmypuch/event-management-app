@@ -214,6 +214,7 @@ p.hero-paragragh {
 
   .btn-login {
     text-align: center;
+    margin-left: 20px;
   }
 
   .btn-signup {

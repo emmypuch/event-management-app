@@ -177,6 +177,7 @@ ul li {
 
   .btn-login {
     text-align: center;
+    margin-left: 20px;
   }
 
   .btn-signup {

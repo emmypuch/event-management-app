@@ -23,14 +23,8 @@
           />
           {{ eventData.time }}
         </h6>
-        <p
-          class="text"
-          @click="toggleDescription"
-          :class="{ 'overflow-hidden': !showFullDescription }"
-        >
-          {{
-            showFullDescription ? eventData.description : truncatedDescription
-          }}
+        <p class="text">
+          {{ truncatedDescription }}
         </p>
         <nuxt-link :to="`/events/${eventData.id}`" class="details-link">
           View details
@@ -58,12 +52,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      showFullDescription: false,
-    };
-  },
-
   //   Limit the character
   computed: {
     truncatedDescription() {
@@ -73,14 +61,6 @@ export default {
       } else {
         return this.eventData.description.substring(0, maxCharacters) + "...";
       }
-    },
-    showEllipsis() {
-      return this.eventData.description.length > 100;
-    },
-  },
-  methods: {
-    toggleDescription() {
-      this.showFullDescription = !this.showFullDescription;
     },
   },
 };
@@ -116,14 +96,14 @@ div.trending-container {
 img.image {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/0.7;
 }
 
 div.eventCard {
   background: #fff;
   border-radius: 10px;
   width: 421px;
-  height: 580px;
+  height: 460px;
   border: 1px solid #e0e0e0;
 }
 
@@ -189,7 +169,7 @@ p {
   div.eventCard {
     width: 100%;
     max-width: 350px;
-    height: 490px;
+    height: 360px;
   }
 
   img.image {
